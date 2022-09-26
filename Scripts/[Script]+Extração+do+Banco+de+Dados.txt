@@ -1,0 +1,58 @@
+
+VIAGEM:
+SELECT viagem_id
+	, faturamento
+	, km_rodado
+	, data_inicio
+	, motorista_id
+	, cliente_id
+FROM viagem;
+STORE VIAGEM into ../dados/viagem.qvd(QVD);
+DROP TABLE VIAGEM;
+
+MOTORISTA:
+SELECT motorista_id
+	, nome
+FROM motorista;
+STORE MOTORISTA into ../dados/motorista.qvd(QVD);
+DROP TABLE MOTORISTA;
+
+CENTRO_CUSTO:
+SELECT centro_custo_id
+	, nome as centro_custo
+FROM centro_custo;
+STORE CENTRO_CUSTO into ../dados/centro_custo.qvd(QVD);
+DROP TABLE CENTRO_CUSTO;
+
+CLIENTE:
+SELECT cliente_id
+	, nome as cliente
+	, tipo
+FROM cliente;
+STORE CLIENTE into ../dados/cliente.qvd(QVD);
+DROP TABLE CLIENTE;
+
+MANUTENCAO:
+SELECT manutencao_id
+	, viagem_id
+	, valor as valor_manutencao
+FROM manutencao;
+STORE MANUTENCAO into ../dados/manutencao.qvd(QVD);
+DROP TABLE MANUTENCAO;
+
+MOTORISTA_CENTRO_CUSTO:
+SELECT motorista_id
+	, centro_custo_id
+	, data_inicio as data_inicio_cc
+	, data_termino as data_termino_cc
+FROM motorista_centro_custo;
+STORE MOTORISTA_CENTRO_CUSTO into ../dados/motorista_centro_custo.qvd(QVD);
+DROP TABLE MOTORISTA_CENTRO_CUSTO;
+
+ABASTECIMENTO:
+SELECT viagem_id
+	, quantidade
+	, valor
+FROM abastecimento;
+STORE ABASTECIMENTO into ../dados/abastecimento.qvd(QVD);
+DROP TABLE ABASTECIMENTO;
